@@ -30,11 +30,12 @@
       position: fixed;
       inset: 0;
       z-index: 100;
-      background: #f7f3ed;
 
       display: flex;
       align-items: center;
       justify-content: center;
+
+      background: #f7f3ed;
     }
 
     #intro img {
@@ -48,31 +49,35 @@
       position: absolute;
 
       left: 50%;
-      bottom: 20%;
+      bottom: 19%;
 
       transform: translateX(-50%);
+
+      z-index: 120;
 
       border: none;
       outline: none;
 
-      padding: 14px 30px;
+      padding: 15px 34px;
 
-      border-radius: 40px;
+      border-radius: 45px;
 
-      background: rgba(248, 245, 239, 0.92);
-
+      background: rgba(255, 255, 255, 0.93);
       color: #b58d4c;
 
       font-size: 20px;
-      font-weight: 500;
+      font-weight: 600;
 
       cursor: pointer;
 
       box-shadow:
-        0 4px 18px rgba(0, 0, 0, 0.10);
+        0 5px 20px rgba(0, 0, 0, 0.10);
 
-      backdrop-filter: blur(5px);
-      -webkit-backdrop-filter: blur(5px);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
     }
 
 
@@ -150,10 +155,6 @@
        زر الموقع
     ========================== */
 
-    .location-page {
-      position: relative;
-    }
-
     .map-button {
       position: absolute;
 
@@ -162,7 +163,7 @@
 
       bottom: 17%;
 
-      width: 62%;
+      width: 64%;
       height: 8%;
 
       z-index: 20;
@@ -174,7 +175,47 @@
 
 
     /* =========================
-       شاشة كمبيوتر
+       زر الموسيقى العائم
+    ========================== */
+
+    #musicButton {
+      position: fixed;
+
+      right: 18px;
+      bottom: 24px;
+
+      z-index: 300;
+
+      width: 52px;
+      height: 52px;
+
+      border-radius: 50%;
+      border: 1px solid rgba(181, 141, 76, 0.45);
+
+      background: rgba(255, 255, 255, 0.92);
+
+      color: #b58d4c;
+
+      font-size: 23px;
+
+      display: none;
+      align-items: center;
+      justify-content: center;
+
+      cursor: pointer;
+
+      box-shadow:
+        0 4px 16px rgba(0, 0, 0, 0.12);
+
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+
+      touch-action: manipulation;
+    }
+
+
+    /* =========================
+       شاشة الكمبيوتر
     ========================== */
 
     @media (min-width: 700px) {
@@ -194,6 +235,10 @@
 
         transform: translateX(-50%);
       }
+
+      #musicButton {
+        right: calc(50% - 230px);
+      }
     }
   </style>
 </head>
@@ -212,7 +257,7 @@
       alt="دعوة محمد ولين"
     />
 
-    <button id="openButton">
+    <button id="openButton" type="button">
       اضغط هنا
     </button>
 
@@ -228,7 +273,9 @@
     <video
       id="openingVideo"
       playsinline
+      webkit-playsinline
       preload="auto"
+      muted
     >
 
       <source
@@ -242,16 +289,42 @@
 
 
   <!-- =========================
-       الصفحات
+       الموسيقى
+  ========================== -->
+
+  <audio
+    id="bgMusic"
+    loop
+    preload="auto"
+  >
+    <source
+      src="./music.mp3"
+      type="audio/mpeg"
+    />
+  </audio>
+
+
+  <!-- =========================
+       زر تشغيل/إيقاف الموسيقى
+  ========================== -->
+
+  <button
+    id="musicButton"
+    type="button"
+    aria-label="تشغيل أو إيقاف الموسيقى"
+  >
+    ♪
+  </button>
+
+
+  <!-- =========================
+       صفحات الدعوة
   ========================== -->
 
   <main id="pages">
 
 
-    <!-- =========================
-         الصفحة الأولى
-         SAVE THE DATE
-    ========================== -->
+    <!-- 1. Save The Date -->
 
     <section class="page">
 
@@ -263,11 +336,7 @@
     </section>
 
 
-
-    <!-- =========================
-         الصفحة الثانية
-         العد التنازلي
-    ========================== -->
+    <!-- 2. العد التنازلي -->
 
     <section class="page">
 
@@ -279,11 +348,7 @@
     </section>
 
 
-
-    <!-- =========================
-         الصفحة الثالثة
-         معلومات العرس
-    ========================== -->
+    <!-- 3. معلومات العرس -->
 
     <section class="page">
 
@@ -295,28 +360,18 @@
     </section>
 
 
+    <!-- 4. الموقع -->
 
-    <!-- =========================
-         الصفحة الرابعة
-         الموقع
-    ========================== -->
-
-    <section class="page location-page">
+    <section class="page">
 
       <img
         src="./location.jpeg"
         alt="موقع حفل الزفاف"
       />
 
-
-      <!--
-      بدلي رابط Google Maps لاحقًا
-      بالرابط الحقيقي للقاعة
-      -->
-
       <a
         class="map-button"
-        href="https://maps.google.com/"
+        href="https://maps.app.goo.gl/3LUZ8aMZ1nCqh6jG7?g_st=ic"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="افتح الموقع على الخريطة"
@@ -325,7 +380,6 @@
     </section>
 
   </main>
-
 
 
   <script>
@@ -345,32 +399,85 @@
     const pages =
       document.getElementById("pages");
 
+    const bgMusic =
+      document.getElementById("bgMusic");
+
+    const musicButton =
+      document.getElementById("musicButton");
+
+
+    let musicPlaying = false;
+
 
     /* =========================
-       عند الضغط على المغلف
+       الضغط على "اضغط هنا"
     ========================== */
 
     openButton.addEventListener(
       "click",
       function () {
 
-        intro.style.display = "none";
+        /*
+        إظهار الفيديو أولًا
+        */
 
         videoScreen.style.display = "block";
 
+
+        /*
+        إعادة الفيديو للبداية
+        */
+
         openingVideo.currentTime = 0;
 
+        openingVideo.muted = true;
+
+
+        /*
+        تشغيل الفيديو
+        من نفس ضغطة المستخدم
+        */
 
         openingVideo
           .play()
-          .catch(function () {
+          .then(function () {
 
             /*
-            لو حصلت مشكلة في تشغيل الفيديو
-            يدخل مباشرة للصفحات
+            تشغيل الموسيقى
+            بعد الضغط على "اضغط هنا"
             */
 
-            showInvitation();
+            bgMusic.currentTime = 0;
+
+            bgMusic.volume = 0.45;
+
+
+            return bgMusic.play();
+
+          })
+          .then(function () {
+
+            musicPlaying = true;
+
+            musicButton.textContent = "♫";
+
+            musicButton.style.display = "flex";
+
+            intro.style.display = "none";
+
+          })
+          .catch(function (error) {
+
+            console.log("Playback error:", error);
+
+            /*
+            حتى لو رفض المتصفح الموسيقى،
+            يستمر الفيديو والدعوة
+            */
+
+            intro.style.display = "none";
+
+            musicButton.style.display = "flex";
 
           });
 
@@ -386,18 +493,91 @@
       "ended",
       function () {
 
-        showInvitation();
+        videoScreen.style.display = "none";
+
+        pages.style.display = "block";
+
+        pages.scrollTo({
+          top: 0,
+          behavior: "auto"
+        });
 
       }
     );
 
 
-    function showInvitation() {
+    /* =========================
+       زر الموسيقى
+       تشغيل / إيقاف
+    ========================== */
 
-      openingVideo.pause();
+    musicButton.addEventListener(
+      "click",
+      function () {
 
-      videoScreen.style.display = "none";
+        if (musicPlaying) {
 
-      pages.style.display = "block";
+          bgMusic.pause();
 
-      pages.scrollTo({
+          musicPlaying = false;
+
+          musicButton.textContent = "♪";
+
+        } else {
+
+          bgMusic
+            .play()
+            .then(function () {
+
+              musicPlaying = true;
+
+              musicButton.textContent = "♫";
+
+            })
+            .catch(function (error) {
+
+              console.log(
+                "Music play error:",
+                error
+              );
+
+            });
+
+        }
+
+      }
+    );
+
+
+    /* =========================
+       إذا توقفت الموسيقى لأي سبب
+    ========================== */
+
+    bgMusic.addEventListener(
+      "pause",
+      function () {
+
+        musicPlaying = false;
+
+        musicButton.textContent = "♪";
+
+      }
+    );
+
+
+    bgMusic.addEventListener(
+      "play",
+      function () {
+
+        musicPlaying = true;
+
+        musicButton.textContent = "♫";
+
+      }
+    );
+
+  </script>
+
+
+</body>
+</html>
