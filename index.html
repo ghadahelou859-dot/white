@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>دعوة زفاف محمد ولين</title>
 
   <style>
@@ -17,81 +18,88 @@
       width: 100%;
       height: 100%;
       overflow: hidden;
-      background: #f8f5ef;
+      background: #f7f3ed;
       font-family: Arial, sans-serif;
     }
 
     /* =========================
-       واجهة البداية
+       شاشة المغلف
     ========================== */
 
-    #introScreen {
+    #intro {
       position: fixed;
       inset: 0;
       z-index: 100;
+      background: #f7f3ed;
+
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #f8f5ef;
-      transition: opacity 0.6s ease;
     }
 
-    #introScreen.hidden {
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    #introImage {
-      position: absolute;
+    #intro img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
     }
 
-    #openBtn {
+    #openButton {
       position: absolute;
-      bottom: 20%;
+
       left: 50%;
+      bottom: 20%;
+
       transform: translateX(-50%);
-      z-index: 5;
 
       border: none;
-      background: rgba(248, 245, 239, 0.9);
-      color: #b58d4c;
+      outline: none;
 
-      padding: 13px 28px;
+      padding: 14px 30px;
+
       border-radius: 40px;
 
+      background: rgba(248, 245, 239, 0.92);
+
+      color: #b58d4c;
+
       font-size: 20px;
+      font-weight: 500;
+
       cursor: pointer;
 
-      box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+      box-shadow:
+        0 4px 18px rgba(0, 0, 0, 0.10);
+
       backdrop-filter: blur(5px);
       -webkit-backdrop-filter: blur(5px);
     }
 
+
     /* =========================
-       شاشة الفيديو
+       الفيديو
     ========================== */
 
     #videoScreen {
       position: fixed;
       inset: 0;
+
       z-index: 90;
 
       display: none;
-      align-items: center;
-      justify-content: center;
 
-      background: #f8f5ef;
+      background: #f7f3ed;
     }
 
     #openingVideo {
       width: 100%;
       height: 100%;
+
       object-fit: cover;
-      background: #f8f5ef;
+
+      display: block;
     }
+
 
     /* =========================
        صفحات الدعوة
@@ -101,25 +109,17 @@
       position: fixed;
       inset: 0;
 
+      display: none;
+
       overflow-y: auto;
       overflow-x: hidden;
 
       scroll-snap-type: y mandatory;
       scroll-behavior: smooth;
 
-      background: #f8f5ef;
-
-      visibility: hidden;
-      opacity: 0;
-
-      transition: opacity 0.7s ease;
-
       -webkit-overflow-scrolling: touch;
-    }
 
-    #pages.show {
-      visibility: visible;
-      opacity: 1;
+      background: #f7f3ed;
     }
 
     .page {
@@ -128,76 +128,23 @@
 
       position: relative;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
       scroll-snap-align: start;
       scroll-snap-stop: always;
 
-      background: #f8f5ef;
       overflow: hidden;
+
+      background: #f7f3ed;
     }
 
     .page img {
       width: 100%;
       height: 100%;
+
       object-fit: cover;
+
       display: block;
     }
 
-    /* =========================
-       العد التنازلي الحقيقي
-    ========================== */
-
-    .countdown-overlay {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-    }
-
-    .countdown {
-      position: absolute;
-
-      top: 44%;
-      left: 50%;
-      transform: translateX(-50%);
-
-      width: 82%;
-
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-
-      direction: ltr;
-    }
-
-    .count-box {
-      min-height: 105px;
-
-      border: 1px solid rgba(181, 141, 76, 0.65);
-      border-radius: 18px;
-
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-
-      background: rgba(255, 255, 255, 0.15);
-      color: #b58d4c;
-    }
-
-    .count-number {
-      font-family: Georgia, serif;
-      font-size: clamp(27px, 7vw, 45px);
-      line-height: 1;
-    }
-
-    .count-label {
-      margin-top: 10px;
-      font-size: clamp(11px, 3vw, 17px);
-      direction: rtl;
-    }
 
     /* =========================
        زر الموقع
@@ -207,70 +154,74 @@
       position: relative;
     }
 
-    .map-link {
+    .map-button {
       position: absolute;
 
       left: 50%;
       transform: translateX(-50%);
 
-      bottom: 18%;
+      bottom: 17%;
 
-      width: 58%;
+      width: 62%;
       height: 8%;
 
-      z-index: 10;
+      z-index: 20;
 
       background: transparent;
-      border: none;
+
       cursor: pointer;
     }
 
+
     /* =========================
-       للشاشات الكبيرة
+       شاشة كمبيوتر
     ========================== */
 
     @media (min-width: 700px) {
+
       body {
-        background: #e9e4dc;
+        background: #e8e2da;
       }
 
-      #introScreen,
+      #intro,
       #videoScreen,
       #pages {
         width: 500px;
         max-width: 100%;
+
         left: 50%;
         right: auto;
+
         transform: translateX(-50%);
       }
     }
   </style>
 </head>
 
+
 <body>
 
-  <!-- =====================================
-       1. واجهة المغلف
-  ====================================== -->
+  <!-- =========================
+       1. المغلف
+  ========================== -->
 
-  <section id="introScreen">
+  <section id="intro">
 
     <img
-      id="introImage"
-      src="envelope.jpeg"
+      src="./envelope.jpeg"
       alt="دعوة محمد ولين"
     />
 
-    <button id="openBtn">
+    <button id="openButton">
       اضغط هنا
     </button>
 
   </section>
 
 
-  <!-- =====================================
+  <!-- =========================
        2. فيديو فتح المغلف
-  ====================================== -->
+  ========================== -->
 
   <section id="videoScreen">
 
@@ -279,106 +230,92 @@
       playsinline
       preload="auto"
     >
-      <source src="opening.mp4" type="video/mp4" />
+
+      <source
+        src="./opening.mp4"
+        type="video/mp4"
+      />
+
     </video>
 
   </section>
 
 
-  <!-- =====================================
+  <!-- =========================
        الصفحات
-  ====================================== -->
+  ========================== -->
 
   <main id="pages">
 
 
-    <!-- =====================================
-         3. Save The Date
-    ====================================== -->
+    <!-- =========================
+         الصفحة الأولى
+         SAVE THE DATE
+    ========================== -->
 
     <section class="page">
 
       <img
-        src="save-the-date.jpeg"
+        src="./save-the-date.jpeg"
         alt="Save The Date"
       />
 
     </section>
 
 
-    <!-- =====================================
-         4. العد التنازلي
-    ====================================== -->
+
+    <!-- =========================
+         الصفحة الثانية
+         العد التنازلي
+    ========================== -->
 
     <section class="page">
 
       <img
-        src="countdown.jpeg"
+        src="./countdown.jpeg"
         alt="العد التنازلي"
       />
-
-      <div class="countdown-overlay">
-
-        <div class="countdown">
-
-          <div class="count-box">
-            <div id="days" class="count-number">00</div>
-            <div class="count-label">يوم</div>
-          </div>
-
-          <div class="count-box">
-            <div id="hours" class="count-number">00</div>
-            <div class="count-label">ساعة</div>
-          </div>
-
-          <div class="count-box">
-            <div id="minutes" class="count-number">00</div>
-            <div class="count-label">دقيقة</div>
-          </div>
-
-          <div class="count-box">
-            <div id="seconds" class="count-number">00</div>
-            <div class="count-label">ثانية</div>
-          </div>
-
-        </div>
-
-      </div>
 
     </section>
 
 
-    <!-- =====================================
-         5. معلومات العرس
 
-         ملاحظة:
-         هذه الصورة يجب رفعها إلى GitHub
-         باسم wedding-info.jpeg
-    ====================================== -->
+    <!-- =========================
+         الصفحة الثالثة
+         معلومات العرس
+    ========================== -->
 
     <section class="page">
 
       <img
-        src="wedding-info.jpeg"
+        src="./wedding-info.jpeg"
         alt="معلومات العرس"
       />
 
     </section>
 
 
-    <!-- =====================================
-         6. الموقع
-    ====================================== -->
+
+    <!-- =========================
+         الصفحة الرابعة
+         الموقع
+    ========================== -->
 
     <section class="page location-page">
 
       <img
-        src="location.jpeg"
+        src="./location.jpeg"
         alt="موقع حفل الزفاف"
       />
 
+
+      <!--
+      بدلي رابط Google Maps لاحقًا
+      بالرابط الحقيقي للقاعة
+      -->
+
       <a
-        class="map-link"
+        class="map-button"
         href="https://maps.google.com/"
         target="_blank"
         rel="noopener noreferrer"
@@ -390,17 +327,14 @@
   </main>
 
 
+
   <script>
 
-    /* =========================
-       عناصر الصفحة
-    ========================== */
+    const intro =
+      document.getElementById("intro");
 
-    const introScreen =
-      document.getElementById("introScreen");
-
-    const openBtn =
-      document.getElementById("openBtn");
+    const openButton =
+      document.getElementById("openButton");
 
     const videoScreen =
       document.getElementById("videoScreen");
@@ -413,156 +347,57 @@
 
 
     /* =========================
-       الضغط على افتح
+       عند الضغط على المغلف
     ========================== */
 
-    openBtn.addEventListener("click", async () => {
+    openButton.addEventListener(
+      "click",
+      function () {
 
-      introScreen.classList.add("hidden");
+        intro.style.display = "none";
 
-      setTimeout(async () => {
-
-        introScreen.style.display = "none";
-
-        videoScreen.style.display = "flex";
+        videoScreen.style.display = "block";
 
         openingVideo.currentTime = 0;
 
-        try {
-          await openingVideo.play();
-        } catch (error) {
-          console.log("Video error:", error);
 
-          showPages();
-        }
+        openingVideo
+          .play()
+          .catch(function () {
 
-      }, 500);
+            /*
+            لو حصلت مشكلة في تشغيل الفيديو
+            يدخل مباشرة للصفحات
+            */
 
-    });
+            showInvitation();
+
+          });
+
+      }
+    );
 
 
     /* =========================
        بعد انتهاء الفيديو
     ========================== */
 
-    openingVideo.addEventListener("ended", () => {
+    openingVideo.addEventListener(
+      "ended",
+      function () {
 
-      showPages();
+        showInvitation();
 
-    });
+      }
+    );
 
 
-    function showPages() {
+    function showInvitation() {
+
+      openingVideo.pause();
 
       videoScreen.style.display = "none";
 
-      pages.classList.add("show");
+      pages.style.display = "block";
 
       pages.scrollTo({
-        top: 0,
-        behavior: "auto"
-      });
-
-    }
-
-
-    /* =========================
-       العد التنازلي
-
-       26 / 10 / 2026
-       الساعة 7 مساءً
-    ========================== */
-
-    const weddingDate =
-      new Date("2026-10-26T19:00:00+03:00");
-
-
-    function updateCountdown() {
-
-      const now = new Date();
-
-      const distance =
-        weddingDate.getTime() - now.getTime();
-
-
-      if (distance <= 0) {
-
-        document.getElementById("days").textContent =
-          "00";
-
-        document.getElementById("hours").textContent =
-          "00";
-
-        document.getElementById("minutes").textContent =
-          "00";
-
-        document.getElementById("seconds").textContent =
-          "00";
-
-        return;
-      }
-
-
-      const days =
-        Math.floor(
-          distance /
-          (1000 * 60 * 60 * 24)
-        );
-
-
-      const hours =
-        Math.floor(
-          (
-            distance %
-            (1000 * 60 * 60 * 24)
-          ) /
-          (1000 * 60 * 60)
-        );
-
-
-      const minutes =
-        Math.floor(
-          (
-            distance %
-            (1000 * 60 * 60)
-          ) /
-          (1000 * 60)
-        );
-
-
-      const seconds =
-        Math.floor(
-          (
-            distance %
-            (1000 * 60)
-          ) /
-          1000
-        );
-
-
-      document.getElementById("days").textContent =
-        String(days).padStart(2, "0");
-
-
-      document.getElementById("hours").textContent =
-        String(hours).padStart(2, "0");
-
-
-      document.getElementById("minutes").textContent =
-        String(minutes).padStart(2, "0");
-
-
-      document.getElementById("seconds").textContent =
-        String(seconds).padStart(2, "0");
-
-    }
-
-
-    updateCountdown();
-
-    setInterval(updateCountdown, 1000);
-
-  </script>
-
-</body>
-</html>
