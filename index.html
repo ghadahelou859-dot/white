@@ -62,7 +62,7 @@
 
       border-radius: 45px;
 
-      background: rgba(255, 255, 255, 0.93);
+      background: rgba(255, 255, 255, 0.94);
       color: #b58d4c;
 
       font-size: 20px;
@@ -152,8 +152,61 @@
 
 
     /* =========================
+       العد التنازلي الحقيقي
+    ========================== */
+
+    .countdown-page {
+      position: relative;
+    }
+
+    .countdown-live {
+      position: absolute;
+
+      top: 46.5%;
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      width: 82%;
+
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+
+      gap: 6%;
+
+      direction: ltr;
+
+      z-index: 20;
+
+      pointer-events: none;
+    }
+
+    .count-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .count-item span {
+      font-family: Georgia, "Times New Roman", serif;
+
+      font-size: clamp(34px, 9vw, 56px);
+
+      color: #b58d4c;
+
+      font-weight: 400;
+
+      line-height: 1;
+    }
+
+
+    /* =========================
        زر الموقع
     ========================== */
+
+    .location-page {
+      position: relative;
+    }
 
     .map-button {
       position: absolute;
@@ -175,7 +228,7 @@
 
 
     /* =========================
-       زر الموسيقى العائم
+       زر الموسيقى
     ========================== */
 
     #musicButton {
@@ -190,6 +243,7 @@
       height: 52px;
 
       border-radius: 50%;
+
       border: 1px solid rgba(181, 141, 76, 0.45);
 
       background: rgba(255, 255, 255, 0.92);
@@ -215,7 +269,7 @@
 
 
     /* =========================
-       شاشة الكمبيوتر
+       للشاشات الكبيرة
     ========================== */
 
     @media (min-width: 700px) {
@@ -305,7 +359,7 @@
 
 
   <!-- =========================
-       زر تشغيل/إيقاف الموسيقى
+       زر الموسيقى
   ========================== -->
 
   <button
@@ -324,7 +378,10 @@
   <main id="pages">
 
 
-    <!-- 1. Save The Date -->
+    <!-- =========================
+         الصفحة الأولى
+         Save The Date
+    ========================== -->
 
     <section class="page">
 
@@ -336,19 +393,45 @@
     </section>
 
 
-    <!-- 2. العد التنازلي -->
+    <!-- =========================
+         الصفحة الثانية
+         العد التنازلي
+    ========================== -->
 
-    <section class="page">
+    <section class="page countdown-page">
 
       <img
         src="./countdown.jpeg"
         alt="العد التنازلي"
       />
 
+      <div class="countdown-live">
+
+        <div class="count-item">
+          <span id="days">00</span>
+        </div>
+
+        <div class="count-item">
+          <span id="hours">00</span>
+        </div>
+
+        <div class="count-item">
+          <span id="minutes">00</span>
+        </div>
+
+        <div class="count-item">
+          <span id="seconds">00</span>
+        </div>
+
+      </div>
+
     </section>
 
 
-    <!-- 3. معلومات العرس -->
+    <!-- =========================
+         الصفحة الثالثة
+         معلومات العرس
+    ========================== -->
 
     <section class="page">
 
@@ -360,9 +443,12 @@
     </section>
 
 
-    <!-- 4. الموقع -->
+    <!-- =========================
+         الصفحة الرابعة
+         الموقع
+    ========================== -->
 
-    <section class="page">
+    <section class="page location-page">
 
       <img
         src="./location.jpeg"
@@ -410,47 +496,25 @@
 
 
     /* =========================
-       الضغط على "اضغط هنا"
+       الضغط على اضغط هنا
     ========================== */
 
     openButton.addEventListener(
       "click",
       function () {
 
-        /*
-        إظهار الفيديو أولًا
-        */
-
         videoScreen.style.display = "block";
 
-
-        /*
-        إعادة الفيديو للبداية
-        */
-
         openingVideo.currentTime = 0;
-
         openingVideo.muted = true;
 
+        bgMusic.currentTime = 0;
+        bgMusic.volume = 0.45;
 
-        /*
-        تشغيل الفيديو
-        من نفس ضغطة المستخدم
-        */
 
         openingVideo
           .play()
           .then(function () {
-
-            /*
-            تشغيل الموسيقى
-            بعد الضغط على "اضغط هنا"
-            */
-
-            bgMusic.currentTime = 0;
-
-            bgMusic.volume = 0.45;
-
 
             return bgMusic.play();
 
@@ -460,7 +524,6 @@
             musicPlaying = true;
 
             musicButton.textContent = "♫";
-
             musicButton.style.display = "flex";
 
             intro.style.display = "none";
@@ -469,11 +532,6 @@
           .catch(function (error) {
 
             console.log("Playback error:", error);
-
-            /*
-            حتى لو رفض المتصفح الموسيقى،
-            يستمر الفيديو والدعوة
-            */
 
             intro.style.display = "none";
 
@@ -508,7 +566,6 @@
 
     /* =========================
        زر الموسيقى
-       تشغيل / إيقاف
     ========================== */
 
     musicButton.addEventListener(
@@ -549,10 +606,6 @@
     );
 
 
-    /* =========================
-       إذا توقفت الموسيقى لأي سبب
-    ========================== */
-
     bgMusic.addEventListener(
       "pause",
       function () {
@@ -576,8 +629,114 @@
       }
     );
 
-  </script>
 
+    /* =========================
+       العد التنازلي الحقيقي
+
+       تاريخ العرس:
+       26 / 10 / 2026
+
+       الساعة:
+       7:00 مساءً
+
+       توقيت فلسطين
+    ========================== */
+
+    const weddingDate =
+      new Date("2026-10-26T19:00:00+02:00");
+
+
+    function updateCountdown() {
+
+      const now =
+        new Date();
+
+      const difference =
+        weddingDate.getTime() -
+        now.getTime();
+
+
+      if (difference <= 0) {
+
+        document.getElementById("days").textContent =
+          "00";
+
+        document.getElementById("hours").textContent =
+          "00";
+
+        document.getElementById("minutes").textContent =
+          "00";
+
+        document.getElementById("seconds").textContent =
+          "00";
+
+        return;
+      }
+
+
+      const days =
+        Math.floor(
+          difference /
+          (1000 * 60 * 60 * 24)
+        );
+
+
+      const hours =
+        Math.floor(
+          (
+            difference %
+            (1000 * 60 * 60 * 24)
+          ) /
+          (1000 * 60 * 60)
+        );
+
+
+      const minutes =
+        Math.floor(
+          (
+            difference %
+            (1000 * 60 * 60)
+          ) /
+          (1000 * 60)
+        );
+
+
+      const seconds =
+        Math.floor(
+          (
+            difference %
+            (1000 * 60)
+          ) /
+          1000
+        );
+
+
+      document.getElementById("days").textContent =
+        String(days).padStart(2, "0");
+
+
+      document.getElementById("hours").textContent =
+        String(hours).padStart(2, "0");
+
+
+      document.getElementById("minutes").textContent =
+        String(minutes).padStart(2, "0");
+
+
+      document.getElementById("seconds").textContent =
+        String(seconds).padStart(2, "0");
+
+    }
+
+
+    updateCountdown();
+
+    setInterval(
+      updateCountdown,
+      1000
+    );
+
+  </script>
 
 </body>
 </html>
