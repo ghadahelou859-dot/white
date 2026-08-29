@@ -2,1361 +2,1053 @@
 <html lang="ar" dir="rtl">
 
 <head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover"
+  >
+
+  <title>Happy Birthday Lina</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      background: #fff;
+      overflow-x: hidden;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      color: #4d3b4f;
+    }
+
+    img,
+    video {
+      display: block;
+      width: 100%;
+    }
+
+    button,
+    input,
+    select {
+      font-family: inherit;
+    }
+
+    .page {
+      position: relative;
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .full-image {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    /* =========================
+       COVER
+    ========================= */
+
+    #coverPage {
+      position: relative;
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    #coverImage {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    #openInvitation {
+      position: absolute;
+      left: 50%;
+      bottom: 6%;
+      transform: translateX(-50%);
+
+      z-index: 20;
+
+      border: none;
+      border-radius: 999px;
+
+      padding: 14px 32px;
+
+      background: linear-gradient(
+        135deg,
+        #f3a2bf,
+        #ea6e99
+      );
+
+      color: white;
+
+      font-size: 18px;
+      font-weight: 700;
+
+      box-shadow:
+        0 8px 24px rgba(0, 0, 0, .18);
+
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    #openInvitation:active {
+      transform:
+        translateX(-50%)
+        scale(.97);
+    }
+
+    /* =========================
+       COVER VIDEO
+    ========================= */
+
+    #coverVideoPage {
+      display: none;
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+      background: #000;
+    }
 
-<meta charset="UTF-8">
+    #coverVideo {
+      width: 100%;
+      height: auto;
+      background: #000;
+    }
 
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0, viewport-fit=cover"
->
+    /* =========================
+       CONTENT
+    ========================= */
 
-<title>دعوة زفاف</title>
+    #contentPages {
+      display: none;
+      width: 100%;
+      background: #fff;
+    }
 
-<style>
+    /* =========================
+       LOCATION
+    ========================= */
 
-* {
-  box-sizing: border-box;
-}
+    .location-page {
+      position: relative;
+    }
 
-html {
-  scroll-behavior: smooth;
-}
+    .map-button {
+      position: absolute;
 
-body {
-  margin: 0;
-  padding: 0;
+      left: 50%;
+      bottom: 7%;
 
-  background: #fffaf1;
+      transform: translateX(-50%);
 
-  font-family:
-    Tahoma,
-    Arial,
-    sans-serif;
+      z-index: 20;
 
-  color: #9b7136;
-}
+      width: 82%;
 
+      padding: 15px 18px;
 
-/* ==================================
-   إعداد الصفحات
-================================== */
+      border-radius: 999px;
 
-.page {
+      text-decoration: none;
+      text-align: center;
 
-  position: relative;
+      color: white;
 
-  width: 100%;
+      background: linear-gradient(
+        135deg,
+        #76b8c3,
+        #5ca7b4
+      );
 
-  min-height: 100vh;
+      font-size: 17px;
+      font-weight: 700;
 
-  background: #fffaf1;
+      box-shadow:
+        0 8px 24px rgba(0,0,0,.16);
+    }
 
-  display: flex;
+    .map-button:active {
+      transform:
+        translateX(-50%)
+        scale(.97);
+    }
 
-  align-items: center;
+    /* =========================
+       SECOND VIDEO
+    ========================= */
 
-  justify-content: center;
+    #scene2Page {
+      position: relative;
+      width: 100%;
+      background: #000;
+    }
 
-  overflow: hidden;
+    #scene2Video {
+      display: block;
+      width: 100%;
+      height: auto;
+      background: #000;
+    }
 
-}
+    /* =========================
+       FINAL
+    ========================= */
 
+    .final-page {
+      position: relative;
+    }
 
-/* ==================================
-   الصور
-================================== */
+    .rsvp-main-button {
+      position: absolute;
 
-.full-image {
+      left: 50%;
+      bottom: 8%;
 
-  display: block;
+      transform: translateX(-50%);
 
-  width: 100%;
+      z-index: 20;
 
-  height: auto;
+      width: 82%;
 
-  max-width: 600px;
+      padding: 15px;
 
-  margin: auto;
+      border: none;
+      border-radius: 999px;
 
-}
+      background: linear-gradient(
+        135deg,
+        #f19abb,
+        #eb6d99
+      );
 
+      color: white;
 
-/* ==================================
-   صفحة فتح المغلف
-================================== */
+      font-size: 18px;
+      font-weight: 700;
 
-#intro {
+      box-shadow:
+        0 8px 22px rgba(0,0,0,.16);
 
-  min-height: 100vh;
+      cursor: pointer;
+    }
 
-  background: #fffaf1;
+    /* =========================
+       RSVP
+    ========================= */
 
-}
+    #rsvpOverlay {
+      position: fixed;
+      inset: 0;
 
+      z-index: 5000;
 
-.video-box {
+      display: none;
+      align-items: center;
+      justify-content: center;
 
-  position: relative;
+      padding: 20px;
 
-  width: 100%;
+      background:
+        rgba(60,45,64,.48);
 
-  max-width: 600px;
+      backdrop-filter: blur(6px);
+    }
 
-  margin: auto;
+    #rsvpOverlay.show {
+      display: flex;
+    }
 
-}
+    .rsvp-card {
+      position: relative;
 
+      width: min(92vw, 430px);
+      max-height: 90vh;
+      overflow-y: auto;
 
-#introVideo {
+      padding: 28px 22px 24px;
 
-  display: block;
+      border-radius: 26px;
 
-  width: 100%;
+      background:
+        rgba(255,252,248,.99);
 
-  height: auto;
+      box-shadow:
+        0 15px 50px rgba(0,0,0,.2);
 
-  max-height: 100vh;
+      text-align: center;
+    }
 
-  object-fit: contain;
+    .rsvp-close {
+      position: absolute;
+      top: 12px;
+      left: 14px;
 
-  background: #fffaf1;
+      width: 38px;
+      height: 38px;
 
-}
+      border: none;
+      border-radius: 50%;
 
+      background: #f4e7ec;
 
-/* زر شفاف فوق المغلف */
+      font-size: 20px;
 
-#openButton {
+      cursor: pointer;
+    }
 
-  position: absolute;
+    .rsvp-title {
+      margin-bottom: 8px;
+      font-size: 25px;
+      color: #d85f8d;
+    }
 
-  inset: 0;
+    .rsvp-subtitle {
+      margin-bottom: 20px;
 
-  width: 100%;
+      font-size: 14px;
+      line-height: 1.7;
 
-  height: 100%;
+      color: #765f73;
+    }
 
-  border: none;
+    .field {
+      margin-bottom: 14px;
+      text-align: right;
+    }
 
-  background: transparent;
+    .field label {
+      display: block;
+      margin-bottom: 7px;
 
-  cursor: pointer;
+      font-size: 14px;
+      font-weight: 700;
 
-  z-index: 5;
+      color: #654f64;
+    }
 
-}
+    .field input,
+    .field select {
+      width: 100%;
 
+      padding: 14px 15px;
 
-/* عبارة فتح الدعوة */
+      border: 1px solid #ead9e2;
+      border-radius: 14px;
 
-#openText {
+      background: #fff;
 
-  position: absolute;
+      font-size: 16px;
+      color: #4f3e4d;
 
-  left: 50%;
+      outline: none;
+    }
 
-  bottom: 7%;
+    .attendance-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
 
-  transform: translateX(-50%);
+      gap: 10px;
 
-  z-index: 6;
+      margin-bottom: 18px;
+    }
 
-  padding: 10px 20px;
+    .attendance-option input {
+      display: none;
+    }
 
-  border-radius: 50px;
+    .attendance-option label {
+      display: block;
 
-  border:
-    1px solid
-    rgba(168, 122, 53, 0.45);
+      padding: 13px 10px;
 
-  background:
-    rgba(255, 250, 241, 0.94);
+      border-radius: 14px;
 
-  color: #91672f;
+      border: 1px solid #ead9e2;
 
-  font-size: 15px;
+      background: #fff;
+      color: #654f64;
 
-  white-space: nowrap;
+      font-size: 15px;
+      font-weight: 700;
 
-  pointer-events: none;
+      cursor: pointer;
+    }
 
-  transition: opacity 0.4s ease;
+    .attendance-option input:checked + label {
+      background: #f6d5e1;
+      border-color: #e38aaa;
+      color: #bd5079;
+    }
 
-}
+    .send-rsvp {
+      width: 100%;
 
+      padding: 15px;
 
-/* ==================================
-   زر الموسيقى
-================================== */
+      border: none;
+      border-radius: 999px;
 
-#musicButton {
+      background: linear-gradient(
+        135deg,
+        #ef90b3,
+        #e96897
+      );
 
-  position: fixed;
+      color: #fff;
 
-  left: 18px;
+      font-size: 17px;
+      font-weight: 700;
 
-  bottom: 18px;
+      cursor: pointer;
+    }
 
-  z-index: 9999;
+    /* =========================
+       MOBILE
+    ========================= */
 
-  width: 50px;
+    @media (max-width: 500px) {
+      .page,
+      #coverPage,
+      #coverVideoPage {
+        max-width: 100%;
+      }
 
-  height: 50px;
+      #openInvitation {
+        font-size: 17px;
+        padding: 13px 28px;
+      }
 
-  border-radius: 50%;
-
-  border:
-    1px solid
-    rgba(168, 122, 53, 0.45);
-
-  background:
-    rgba(255, 250, 241, 0.96);
-
-  color: #9b7136;
-
-  font-size: 19px;
-
-  cursor: pointer;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  box-shadow:
-    0 4px 15px
-    rgba(0,0,0,0.08);
-
-}
-
-
-/* الموسيقى تعمل */
-
-#musicButton.playing {
-
-  background: #a87a35;
-
-  color: #fffaf1;
-
-}
-
-
-/* ==================================
-   سهم السحب
-================================== */
-
-.scroll-arrow {
-
-  position: absolute;
-
-  left: 50%;
-
-  bottom: 12px;
-
-  transform: translateX(-50%);
-
-  z-index: 20;
-
-  font-size: 28px;
-
-  color:
-    rgba(155,113,54,0.65);
-
-  pointer-events: none;
-
-  animation:
-    arrowMove
-    1.5s
-    infinite;
-
-}
-
-
-@keyframes arrowMove {
-
-  0% {
-
-    transform:
-      translate(-50%,0);
-
-  }
-
-  50% {
-
-    transform:
-      translate(-50%,8px);
-
-  }
-
-  100% {
-
-    transform:
-      translate(-50%,0);
-
-  }
-
-}
-
-
-/* ==================================
-   صفحة Save The Date
-================================== */
-
-#save {
-
-  background: #fffaf1;
-
-}
-
-
-/* ==================================
-   صفحة المعلومات
-================================== */
-
-#info {
-
-  background: #fffaf1;
-
-}
-
-
-/* ==================================
-   صفحة التايمر
-================================== */
-
-#timer {
-
-  position: relative;
-
-  width: 100%;
-
-  min-height: 100vh;
-
-  padding: 0;
-
-  background-color: #fffaf1;
-
-  background-image:
-    url("timer.png");
-
-  background-repeat:
-    no-repeat;
-
-  background-position:
-    center;
-
-  background-size:
-    contain;
-
-}
-
-
-/* طبقة الأرقام */
-
-.timer-page {
-
-  position: relative;
-
-  width: 100%;
-
-  height: 100vh;
-
-  max-width: 600px;
-
-  margin: auto;
-
-}
-
-
-/* أرقام التايمر */
-
-.timer-number {
-
-  position: absolute;
-
-  transform:
-    translate(-50%, -50%);
-
-  z-index: 20;
-
-  color: #a87a35;
-
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  font-size:
-    clamp(
-      22px,
-      6vw,
-      38px
-    );
-
-  font-weight: 500;
-
-  text-align: center;
-
-  direction: ltr;
-
-  min-width: 50px;
-
-}
-
-
-/* يوم */
-
-.days-number {
-
-  left: 78%;
-
-  top: 73%;
-
-}
-
-
-/* ساعة */
-
-.hours-number {
-
-  left: 59%;
-
-  top: 73%;
-
-}
-
-
-/* دقيقة */
-
-.minutes-number {
-
-  left: 40%;
-
-  top: 73%;
-
-}
-
-
-/* ثانية */
-
-.seconds-number {
-
-  left: 21%;
-
-  top: 73%;
-
-}
-
-
-/* ==================================
-   صفحة الموقع
-================================== */
-
-#location {
-
-  min-height: 100vh;
-
-  background: #fffaf1;
-
-  flex-direction: column;
-
-}
-
-
-.location-link {
-
-  display: block;
-
-  width: 100%;
-
-  max-width: 600px;
-
-  margin: auto;
-
-  text-decoration: none;
-
-}
-
-
-.location-image {
-
-  display: block;
-
-  width: 100%;
-
-  height: auto;
-
-}
-
-
-/* زر الخريطة */
-
-.map-button {
-
-  position: absolute;
-
-  left: 50%;
-
-  bottom: 7%;
-
-  transform: translateX(-50%);
-
-  width:
-    min(
-      300px,
-      80%
-    );
-
-  padding: 14px 25px;
-
-  border-radius: 50px;
-
-  background: #a87a35;
-
-  color: white;
-
-  text-align: center;
-
-  text-decoration: none;
-
-  font-size: 16px;
-
-  z-index: 20;
-
-}
-
-
-/* ==================================
-   الكمبيوتر
-================================== */
-
-@media (min-width: 700px) {
-
-  body {
-
-    background: #eee9df;
-
-  }
-
-  .page {
-
-    width: 500px;
-
-    margin:
-      0
-      auto;
-
-  }
-
-}
-
-
-/* ==================================
-   تقليل الحركة
-================================== */
-
-@media
-(prefers-reduced-motion: reduce) {
-
-  html {
-
-    scroll-behavior: auto;
-
-  }
-
-  .scroll-arrow {
-
-    animation: none;
-
-  }
-
-}
-
-</style>
-
+      .map-button,
+      .rsvp-main-button {
+        width: 84%;
+        font-size: 16px;
+      }
+    }
+  </style>
 </head>
 
 
 <body>
 
+  <!-- =========================
+       01 — COVER PNG
+  ========================= -->
+
+  <section id="coverPage">
+
+    <img
+      id="coverImage"
+      src="./cover.png"
+      alt="Happy Birthday Lina"
+    >
+
+    <button
+      id="openInvitation"
+      type="button"
+    >
+      افتح هنا 🎈
+    </button>
+
+  </section>
 
 
-<!-- ==================================
-     الموسيقى
-================================== -->
+  <!-- =========================
+       02 — COVER VIDEO
+  ========================= -->
 
-<audio
-  id="music"
-  preload="auto"
-  loop
->
-
-  <source
-    src="music.mp3"
-    type="audio/mpeg"
+  <section
+    id="coverVideoPage"
+    class="page"
   >
 
-</audio>
+    <video
+      id="coverVideo"
+      muted
+      playsinline
+      webkit-playsinline
+      preload="auto"
+    >
+      <source
+        src="./cover.mp4"
+        type="video/mp4"
+      >
+    </video>
+
+  </section>
+
+
+  <!-- =========================
+       REST
+  ========================= -->
+
+  <main id="contentPages">
+
+
+    <!-- =========================
+         03 — INFO
+    ========================= -->
+
+    <section
+      id="infoPage"
+      class="page"
+    >
+
+      <img
+        src="./info.jpeg"
+        class="full-image"
+        alt="تفاصيل عيد ميلاد لينا"
+      >
+
+    </section>
+
+
+    <!-- =========================
+         04 — LOCATION
+    ========================= -->
+
+    <section
+      id="locationPage"
+      class="page location-page"
+    >
+
+      <img
+        src="./location.jpeg"
+        class="full-image"
+        alt="قاعة إيليا رام الله"
+      >
+
+      <a
+        class="map-button"
+        href="https://maps.app.goo.gl/Y6F9H54yMgRiaBzA9"
+        target="_blank"
+        rel="noopener"
+      >
+        📍 افتح موقع قاعة إيليا
+      </a>
+
+    </section>
+
 
+    <!-- =========================
+         05 — SECOND VIDEO
+    ========================= -->
 
+    <section
+      id="scene2Page"
+      class="page"
+    >
 
-<!-- زر الموسيقى -->
+      <video
+        id="scene2Video"
+        muted
+        playsinline
+        webkit-playsinline
+        preload="auto"
+      >
+        <source
+          src="./scene2.mp4"
+          type="video/mp4"
+        >
+      </video>
+
+    </section>
 
-<button
-  id="musicButton"
-  type="button"
-  aria-label="تشغيل أو إيقاف الموسيقى"
->
 
-♫
+    <!-- =========================
+         06 — FINAL
+    ========================= -->
 
-</button>
+    <section
+      id="finalPage"
+      class="page final-page"
+    >
 
+      <img
+        src="./final.jpeg"
+        class="full-image"
+        alt="بانتظاركم في عيد ميلاد لينا"
+      >
 
+      <button
+        id="openRsvp"
+        class="rsvp-main-button"
+        type="button"
+      >
+        💗 تأكيد الحضور
+      </button>
 
-<!-- ==================================
-     1
-     فتح المغلف
-================================== -->
+    </section>
 
-<section
-  class="page"
-  id="intro"
->
+  </main>
 
-<div class="video-box">
 
+  <!-- =========================
+       RSVP POPUP
+  ========================= -->
 
-<video
-  id="introVideo"
-  preload="auto"
-  playsinline
-  webkit-playsinline
-  poster="cover.png"
->
+  <div id="rsvpOverlay">
 
-  <source
-    src="open.mp4"
-    type="video/mp4"
-  >
+    <div class="rsvp-card">
 
-</video>
+      <button
+        id="closeRsvp"
+        class="rsvp-close"
+        type="button"
+      >
+        ×
+      </button>
 
+      <h2 class="rsvp-title">
+        تأكيد الحضور 🎈
+      </h2>
 
+      <p class="rsvp-subtitle">
+        يسعدنا مشاركتكم فرحة عيد ميلاد لينا 💗
+      </p>
 
-<button
-  id="openButton"
-  type="button"
-  aria-label="فتح الدعوة"
->
-</button>
+      <div class="field">
 
+        <label for="guestName">
+          الاسم
+        </label>
 
+        <input
+          id="guestName"
+          type="text"
+          placeholder="اكتب اسمك"
+        >
 
-<div id="openText">
+      </div>
 
-اضغطي لفتح الدعوة
+      <div class="field">
 
-</div>
+        <label for="guestCount">
+          عدد الحضور
+        </label>
 
+        <select id="guestCount">
 
-</div>
+          <option value="1">
+            شخص واحد
+          </option>
 
-</section>
+          <option value="2">
+            شخصان
+          </option>
 
+          <option value="3">
+            3 أشخاص
+          </option>
 
+          <option value="4">
+            4 أشخاص
+          </option>
 
-<!-- ==================================
-     2
-     Save The Date
-================================== -->
+          <option value="5">
+            5 أشخاص
+          </option>
 
-<section
-  class="page"
-  id="save"
->
+          <option value="6">
+            6 أشخاص
+          </option>
 
+        </select>
 
-<img
-  src="save.png"
-  class="full-image"
-  alt="Save the Date"
->
+      </div>
 
+      <div class="attendance-options">
 
-<div class="scroll-arrow">
+        <div class="attendance-option">
 
-⌄
+          <input
+            type="radio"
+            id="attendingYes"
+            name="attendance"
+            value="سأحضر"
+            checked
+          >
 
-</div>
+          <label for="attendingYes">
+            🎉 سأحضر
+          </label>
 
+        </div>
 
-</section>
+        <div class="attendance-option">
 
+          <input
+            type="radio"
+            id="attendingNo"
+            name="attendance"
+            value="أعتذر عن الحضور"
+          >
 
+          <label for="attendingNo">
+            💗 أعتذر
+          </label>
 
-<!-- ==================================
-     3
-     صفحة المعلومات
-================================== -->
+        </div>
 
-<section
-  class="page"
-  id="info"
->
+      </div>
 
+      <button
+        id="sendRsvp"
+        class="send-rsvp"
+        type="button"
+      >
+        إرسال التأكيد
+      </button>
 
-<img
-  src="info.png"
-  class="full-image"
-  alt="معلومات حفل الزفاف"
->
+    </div>
 
+  </div>
 
-<div class="scroll-arrow">
 
-⌄
+  <script>
 
-</div>
+    /* =========================
+       ELEMENTS
+    ========================= */
 
+    const coverPage =
+      document.getElementById("coverPage");
 
-</section>
+    const coverVideoPage =
+      document.getElementById("coverVideoPage");
 
+    const coverVideo =
+      document.getElementById("coverVideo");
 
+    const openInvitation =
+      document.getElementById("openInvitation");
 
-<!-- ==================================
-     4
-     التايمر
-================================== -->
+    const contentPages =
+      document.getElementById("contentPages");
 
-<section
-  class="page"
-  id="timer"
->
+    const scene2Video =
+      document.getElementById("scene2Video");
 
+    const scene2Page =
+      document.getElementById("scene2Page");
 
-<div class="timer-page">
+    const openRsvp =
+      document.getElementById("openRsvp");
 
+    const closeRsvp =
+      document.getElementById("closeRsvp");
 
-<!-- يوم -->
+    const rsvpOverlay =
+      document.getElementById("rsvpOverlay");
 
-<div
-  class="timer-number days-number"
-  id="days"
->
+    const sendRsvp =
+      document.getElementById("sendRsvp");
 
-0
 
-</div>
+    /* =========================
+       OPEN INVITATION
+    ========================= */
 
+    openInvitation.addEventListener(
+      "click",
+      function () {
 
+        coverVideoPage.style.display =
+          "block";
 
-<!-- ساعة -->
+        coverPage.style.display =
+          "none";
 
-<div
-  class="timer-number hours-number"
-  id="hours"
->
+        window.scrollTo(0, 0);
 
-00
+        try {
+          coverVideo.currentTime = 0;
+        } catch (error) {}
 
-</div>
+        coverVideo
+          .play()
+          .catch(
+            function(error) {
+              console.log(
+                "Cover video error:",
+                error
+              );
+            }
+          );
 
+      }
+    );
 
 
-<!-- دقيقة -->
+    /* =========================
+       AFTER COVER VIDEO
+    ========================= */
 
-<div
-  class="timer-number minutes-number"
-  id="minutes"
->
+    coverVideo.addEventListener(
+      "ended",
+      function () {
 
-00
+        coverVideoPage.style.display =
+          "none";
 
-</div>
+        contentPages.style.display =
+          "block";
 
+        window.scrollTo(0, 0);
 
+        setTimeout(
+          function () {
+            playScene2IfVisible();
+          },
+          500
+        );
 
-<!-- ثانية -->
+      }
+    );
 
-<div
-  class="timer-number seconds-number"
-  id="seconds"
->
 
-00
+    /* =========================
+       SECOND VIDEO
+       MOBILE SAFE
+    ========================= */
 
-</div>
+    let scene2Started = false;
 
 
-</div>
+    function playScene2IfVisible() {
 
+      if (scene2Started) {
+        return;
+      }
 
-<div class="scroll-arrow">
+      const rect =
+        scene2Video.getBoundingClientRect();
 
-⌄
+      const screenHeight =
+        window.innerHeight;
 
-</div>
 
+      if (
+        rect.top <
+        screenHeight * 0.85
+        &&
+        rect.bottom >
+        screenHeight * 0.15
+      ) {
 
-</section>
+        scene2Started = true;
 
+        try {
+          scene2Video.currentTime = 0;
+        } catch (error) {}
 
 
-<!-- ==================================
-     5
-     الموقع
-================================== -->
+        const playPromise =
+          scene2Video.play();
 
-<section
-  class="page"
-  id="location"
->
 
+        if (
+          playPromise !== undefined
+        ) {
 
-<a
-  class="location-link"
-  href="https://maps.app.goo.gl/3q5waWoJhZ8CDxVu8"
-  target="_blank"
-  rel="noopener"
->
+          playPromise.catch(
+            function(error) {
 
+              console.log(
+                "scene2 autoplay blocked:",
+                error
+              );
 
-<img
-  src="map.png"
-  class="location-image"
-  alt="موقع حفل الزفاف"
->
+              scene2Started = false;
 
+            }
+          );
 
-</a>
+        }
 
+      }
 
+    }
 
-<a
-  class="map-button"
-  href="https://maps.app.goo.gl/3q5waWoJhZ8CDxVu8"
-  target="_blank"
-  rel="noopener"
->
 
-فتح الموقع
+    window.addEventListener(
+      "scroll",
+      playScene2IfVisible,
+      {
+        passive: true
+      }
+    );
 
-</a>
 
+    window.addEventListener(
+      "resize",
+      playScene2IfVisible
+    );
 
-</section>
 
+    /* تشغيل احتياطي عند لمس الفيديو */
 
+    scene2Video.addEventListener(
+      "click",
+      function () {
 
-<script>
+        scene2Started = true;
 
+        scene2Video
+          .play()
+          .catch(
+            function() {}
+          );
 
-/* ==================================
-   العناصر
-================================== */
+      }
+    );
 
-const video =
-document.getElementById(
-  "introVideo"
-);
 
+    /* =========================
+       RSVP OPEN
+    ========================= */
 
-const openButton =
-document.getElementById(
-  "openButton"
-);
+    openRsvp.addEventListener(
+      "click",
+      function () {
 
+        rsvpOverlay.classList.add(
+          "show"
+        );
 
-const openText =
-document.getElementById(
-  "openText"
-);
+        document.body.style.overflow =
+          "hidden";
 
+      }
+    );
 
-const music =
-document.getElementById(
-  "music"
-);
 
+    /* =========================
+       RSVP CLOSE
+    ========================= */
 
-const musicButton =
-document.getElementById(
-  "musicButton"
-);
+    function closePopup() {
 
+      rsvpOverlay.classList.remove(
+        "show"
+      );
 
-let opened =
-false;
+      document.body.style.overflow =
+        "";
 
+    }
 
 
-/* ==================================
-   فتح الدعوة
-================================== */
+    closeRsvp.addEventListener(
+      "click",
+      closePopup
+    );
 
-openButton.addEventListener(
 
-"click",
+    rsvpOverlay.addEventListener(
+      "click",
+      function(event) {
 
-async function() {
+        if (
+          event.target ===
+          rsvpOverlay
+        ) {
 
+          closePopup();
 
-if (opened) {
+        }
 
-return;
+      }
+    );
 
-}
 
+    /* =========================
+       SEND RSVP
+    ========================= */
 
-opened =
-true;
+    sendRsvp.addEventListener(
+      "click",
+      function () {
 
+        const guestName =
+          document
+            .getElementById("guestName")
+            .value
+            .trim();
 
-/* إخفاء عبارة فتح */
 
-openText.style.opacity =
-"0";
+        const guestCount =
+          document
+            .getElementById("guestCount")
+            .value;
 
 
-openButton.style.pointerEvents =
-"none";
+        const attendance =
+          document.querySelector(
+            'input[name="attendance"]:checked'
+          ).value;
 
 
+        if (!guestName) {
 
-/* ==================================
-   تشغيل الموسيقى فورًا
-================================== */
+          alert(
+            "اكتب الاسم أولاً 💗"
+          );
 
-try {
+          return;
 
+        }
 
-music.volume =
-0.60;
 
+        /*
+          غيري هذا الرقم
+          إلى رقم الواتساب الحقيقي
+        */
 
-await music.play();
+        const whatsappNumber =
+          "970599123456";
 
 
-musicButton.innerHTML =
-"❚❚";
+        const message =
+`تأكيد حضور عيد ميلاد لينا 🎈
 
+الاسم: ${guestName}
+الحالة: ${attendance}
+عدد الحضور: ${guestCount}
 
-musicButton.classList.add(
-  "playing"
-);
+التاريخ: 7/7/2027
+الوقت: 7:00 مساءً
+المكان: قاعة إيليا - رام الله`;
 
 
-} catch(error) {
+        const whatsappURL =
+          `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
 
-console.log(
-  "المتصفح منع تشغيل الموسيقى"
-);
+        window.location.href =
+          whatsappURL;
 
+      }
+    );
 
-}
-
-
-
-/* ==================================
-   تشغيل فيديو فتح المغلف
-================================== */
-
-try {
-
-
-video.currentTime =
-0;
-
-
-await video.play();
-
-
-} catch(error) {
-
-
-console.log(
-  "تعذر تشغيل فيديو المغلف"
-);
-
-
-goToSave();
-
-
-}
-
-
-}
-
-);
-
-
-
-/* ==================================
-   عندما ينتهي فيديو المغلف
-================================== */
-
-video.addEventListener(
-
-"ended",
-
-function() {
-
-
-goToSave();
-
-
-}
-
-);
-
-
-
-/* ==================================
-   الانتقال إلى Save The Date
-================================== */
-
-function goToSave() {
-
-
-document
-.getElementById(
-  "save"
-)
-.scrollIntoView({
-
-behavior:
-"smooth",
-
-block:
-"start"
-
-});
-
-
-}
-
-
-
-/* ==================================
-   زر الموسيقى
-================================== */
-
-musicButton.addEventListener(
-
-"click",
-
-async function() {
-
-
-/* إذا كانت متوقفة */
-
-if (music.paused) {
-
-
-try {
-
-
-await music.play();
-
-
-musicButton.innerHTML =
-"❚❚";
-
-
-musicButton.classList.add(
-  "playing"
-);
-
-
-} catch(error) {
-
-
-console.log(
-  "تعذر تشغيل الموسيقى"
-);
-
-
-}
-
-
-}
-
-
-/* إذا كانت تعمل */
-
-else {
-
-
-music.pause();
-
-
-musicButton.innerHTML =
-"♫";
-
-
-musicButton.classList.remove(
-  "playing"
-);
-
-
-}
-
-
-}
-
-);
-
-
-
-/* ==================================
-   تاريخ العرس
-
-   27 / 7 / 2027
-
-   الساعة 7 مساء
-================================== */
-
-const weddingDate =
-new Date(
-
-2027,
-
-6,
-
-27,
-
-19,
-
-0,
-
-0
-
-);
-
-
-
-/* ==================================
-   عناصر العداد
-================================== */
-
-const daysElement =
-document.getElementById(
-  "days"
-);
-
-
-const hoursElement =
-document.getElementById(
-  "hours"
-);
-
-
-const minutesElement =
-document.getElementById(
-  "minutes"
-);
-
-
-const secondsElement =
-document.getElementById(
-  "seconds"
-);
-
-
-
-/* ==================================
-   تحديث العداد
-================================== */
-
-function updateCountdown() {
-
-
-const now =
-new Date();
-
-
-let difference =
-weddingDate - now;
-
-
-
-/* انتهى الموعد */
-
-if (
-difference <= 0
-) {
-
-
-daysElement.textContent =
-"0";
-
-
-hoursElement.textContent =
-"00";
-
-
-minutesElement.textContent =
-"00";
-
-
-secondsElement.textContent =
-"00";
-
-
-return;
-
-
-}
-
-
-
-/* ==================================
-   الحساب
-================================== */
-
-const totalSeconds =
-Math.floor(
-  difference / 1000
-);
-
-
-
-const days =
-Math.floor(
-  totalSeconds / 86400
-);
-
-
-
-const hours =
-Math.floor(
-
-(totalSeconds % 86400)
-
-/ 3600
-
-);
-
-
-
-const minutes =
-Math.floor(
-
-(totalSeconds % 3600)
-
-/ 60
-
-);
-
-
-
-const seconds =
-totalSeconds % 60;
-
-
-
-/* ==================================
-   عرض الأرقام
-================================== */
-
-daysElement.textContent =
-String(days);
-
-
-hoursElement.textContent =
-String(hours)
-.padStart(
-  2,
-  "0"
-);
-
-
-minutesElement.textContent =
-String(minutes)
-.padStart(
-  2,
-  "0"
-);
-
-
-secondsElement.textContent =
-String(seconds)
-.padStart(
-  2,
-  "0"
-);
-
-
-}
-
-
-
-/* تشغيل العداد مباشرة */
-
-updateCountdown();
-
-
-
-/* تحديث كل ثانية */
-
-setInterval(
-
-updateCountdown,
-
-1000
-
-);
-
-
-
-/* ==================================
-   في حال لم يعمل الفيديو
-================================== */
-
-video.addEventListener(
-
-"error",
-
-function() {
-
-
-console.log(
-  "تأكدي من وجود open.mp4"
-);
-
-
-}
-
-);
-
-
-
-/* ==================================
-   في حال لم تعمل الموسيقى
-================================== */
-
-music.addEventListener(
-
-"error",
-
-function() {
-
-
-console.log(
-  "تأكدي من وجود music.mp3"
-);
-
-
-}
-
-);
-
-
-</script>
-
+  </script>
 
 </body>
 
